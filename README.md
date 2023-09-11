@@ -1,53 +1,54 @@
-# Stock Price Prediction Readme
+# LSTM_SVMFusion
+Hybrid Deep Learning Approach for Stock Price Prediction
+# Stock Price Prediction using LSTM and SVM
+
+This project demonstrates a hybrid approach to predict stock prices by combining the power of Long Short-Term Memory (LSTM) networks and Support Vector Machines (SVM). The aim of this project is to create a robust and accurate prediction model that takes advantage of both deep learning and traditional machine learning techniques.
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Dataset](#dataset)
+- [Methodology](#methodology)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Results](#results)
+- [Conclusion](#conclusion)
+- [License](#license)
 
 ## Introduction
 
-This repository contains code for predicting stock prices using two different machine learning models: Support Vector Machine (SVM) and Long Short-Term Memory (LSTM) neural networks. The objective of this project is to provide a practical example of how to approach stock price prediction using different techniques and models.
+Stock price prediction has always been a challenging task due to its inherent volatility and sensitivity to various factors. This project explores the combination of LSTM, a type of recurrent neural network, and SVM, a well-established machine learning algorithm, to enhance the accuracy of stock price predictions.
 
 ## Dataset
 
-The dataset used for this project is crucial for the training and evaluation of our models. It is loaded from a CSV file named "TCS1.csv." This dataset contains historical stock price data, including the date and stock price values. Accurate and well-structured data is essential for building reliable predictive models.
+The dataset used for this project contains historical stock price data. It includes features such as opening price, closing price, trading volume, and other relevant metrics. The data is preprocessed and split into training and testing sets to train and evaluate the prediction models.
 
-## Support Vector Machine (SVM) Model
+## Methodology
 
-The SVM model is one of the approaches we use for stock price prediction. Here are the key steps involved:
+1. **Data Preprocessing**: The raw stock price data is cleaned, normalized, and prepared for training. It's crucial to ensure the data is in a suitable format for both LSTM and SVM models.
 
-1. **Data Preparation**: We begin by loading the dataset and preprocessing it. In particular, we convert the 'Date' column to datetime to ensure proper time series handling.
+2. **LSTM Model**: A Long Short-Term Memory network is employed to capture temporal patterns and dependencies in the stock price data. The LSTM model is trained using the training data to predict future stock prices.
 
-2. **Model Building**: We construct an SVM model with a linear kernel using Scikit-Learn's `SVR` class. The choice of kernel function can significantly impact the model's performance, and in this case, we use a linear kernel as a starting point.
+3. **SVM Model**: A Support Vector Machine is used to build a predictive model based on historical stock price features. The SVM model aims to find a hyperplane that best separates different classes of data.
 
-3. **Model Training**: The SVM model is trained on the training data. The training phase is essential for the model to learn patterns and relationships within the data.
+4. **Hybrid Fusion**: The predictions from both the LSTM and SVM models are combined using a fusion technique. This fusion leverages the strengths of both models to improve overall prediction accuracy.
 
-4. **Prediction**: After training, we utilize the trained SVM model to make predictions on the test data.
+## Installation
 
-5. **Performance Evaluation**: To assess the model's accuracy, we calculate the Root Mean Squared Error (RMSE). RMSE is a widely used metric for regression tasks and helps quantify the prediction errors.
+1. Clone this repository: `git clone https://github.com/772003pranav/stock-price-prediction.git`
+2. Install the required dependencies: `pip install -r requirements.txt`
 
-## Long Short-Term Memory (LSTM) Model
+## Usage
 
-In addition to the SVM model, we also implement an LSTM neural network for stock price prediction. Here's how it works:
+1. Place your preprocessed dataset in the `data` directory.
+2. Run the LSTM and SVM scripts to train the models: `python train_lstm.py` and `python train_svm.py`.
+3. Run the fusion script to combine predictions: `python fuse_predictions.py`.
+4. Evaluate the hybrid predictions and analyze the results.
 
-1. **Model Architecture**: We define an LSTM model using TensorFlow's Keras API. LSTMs are well-suited for time series data due to their ability to capture temporal dependencies.
+## Results
 
-2. **Model Compilation**: The LSTM model is compiled with the Adam optimizer and a mean squared error (MSE) loss function. These choices of optimizer and loss function are common for regression tasks.
+The project's success is evaluated based on various metrics, including Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and accuracy of directional predictions. Comparative analysis of individual LSTM and SVM models with the hybrid approach is presented in the project documentation.
 
-3. **Model Training**: The LSTM model is trained on the training data. While the code in this repository trains the model for a single epoch, you can adjust the number of epochs to fine-tune the model's performance.
+## Conclusion
 
-4. **Prediction**: After training, we use the LSTM model to make predictions on the test data.
-
-5. **Data Imputation**: Prior to calculating the RMSE, we impute any missing values in the LSTM predictions to ensure a fair comparison with the SVM model.
-
-6. **Performance Evaluation**: Similar to the SVM model, we calculate the RMSE to evaluate the accuracy of the LSTM model's predictions.
-
-## RMSE Comparison
-
-After training both models, the code calculates and prints the RMSE for both the SVM and LSTM models. This comparison provides insights into which model performs better for this specific stock price prediction task.
-
-## Plotting Predictions
-
-To visualize the model's predictions, we generate a plot that displays the true stock prices, LSTM predictions, and SVM predictions. This graphical representation helps us understand how well the models are capturing the underlying patterns in the data.
-
-## Customization and Experimentation
-
-Feel free to customize the code and dataset to work with your own stock price data or experiment with different machine learning models and hyperparameters. Stock price prediction is a complex task with many factors to consider, and this repository serves as a starting point for your own research and experiments.
-
-We wish you the best of luck with your stock price prediction project!
+This project showcases the potential of combining LSTM and SVM models to predict stock prices. It's important to note that stock market prediction is inherently uncertain, and this hybrid approach serves as a tool for informed decision-making rather than a guaranteed prediction tool.
