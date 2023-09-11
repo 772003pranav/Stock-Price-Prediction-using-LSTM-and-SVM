@@ -13,7 +13,6 @@ This project demonstrates a hybrid approach to predict stock prices by combining
 - [Usage](#usage)
 - [Results](#results)
 - [Conclusion](#conclusion)
-- [License](#license)
 
 ## Introduction
 
